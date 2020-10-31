@@ -1,0 +1,36 @@
+% Configuration
+\input{includes/config.tex}
+\usepackage[english]{babel}
+%
+\begin{document}
+%
+% Titlepage
+\maketitle{Proposal Seminar paper}{International Software Systems Science}{FaaS Performance Study Methodologies}{Hazar Gul Nazari}{17.05.2020}
+%
+% TOCs
+\pagenumbering{Roman}
+\tableofcontents
+\newpage
+\fancyhead[LO]{\footnotesize\sc\nouppercase{\leftmark}}
+\setcounter{page}{1}
+\pagenumbering{arabic}
+\newpage
+%
+% Insert your chapters here
+%
+
+\input{sections/content.tex}
+%
+\newpage
+%
+% References
+\section{References}
+\label{sec:references}
+\addcontentsline{toc}{section}{References}
+\bibliographystyle{alpha}
+\bibliography{bibliography/references}
+%
+% Insert your bibliography here
+
+%
+\end{document}

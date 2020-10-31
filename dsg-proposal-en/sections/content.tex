@@ -1,0 +1,78 @@
+%
+\section{Introduction and Problem Statement}
+\label{sec:introduction-and-problem-statement}
+\subsection{Introduction}
+Serverless Computing (also known as Function as a Service) is emerging as a new and compelling paradigm for the deployment of cloud applications, largely due to the recent shift of enterprise application architectures to containers and microservices \cite{inproceedings}.
+According to a report published by Datadog \footnote{\url{https://devops.com/datadog-sees-spike-in-aws-lambda-serverless-adoption}} shows nearly half of the organizations using the company's IT monitory platform have embraced the AWS Lambda serverless computing framework. It shows companies are migrating their services toward FaaS due to its unique nature. Cloud Service Provider (CSP) companies in general provide their services in the form of "as-a-Service" and FaaS (Function as a Service) is one form of serverless cloud computing.
+FaaS is a category of cloud services that provides a platform allowing customers to develop, run, and manage application functionalities without the complexity of building and maintaining the infrastructure typically associated with developing and launching an app.\cite{Anu:2018} In other words, FaaS is about running your backend code without the overhead of having a server to manage or you have a long-lived server which you just need to think about your application rather than server management \cite{Anu:2018}. In FaaS, you are not bound to a specific language or framework, rather you can write functions on available languages or customized runtime environments. For example, AWS Lambda provides different language supports, such as NodeJS, Python, Ruby, Java, Go, .Net or custom runtime.\footnote{\url{https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html}} To deploy your code on FaaS, we need to upload the snippets of source code and everything else will be managed by the providers such as initializing virtual machines, process management, etc \cite{Anu:2018}.
+\subsection{Problem Statement}
+Cloud service providers deliver their products in the form of "as-a-Service", which are typically categorized by the level of abstraction \cite{pellegrini2019function}. This approach hides the implementation details and shows only functionality to the user. However, the problem is that it is hard to measure the performance of Cloud services because they behave like black boxes. Especially with Function-as-a-Service, it is even more difficult because it completely hides server and infrastructure management from the user by design. In FaaS, there are some notable points that make the FaaS performance unpredictable, such as Cold start (bring up a new container instance when there are no active containers available for the request) \cite{lopez2018comparison}, the execution time for hardware heterogeneity \cite{figiela2018performance}, and complex triggering mechanisms are the main factors in delaying FaaS performance \cite{chang2010optimal}. In the paper \cite{pellegrini2019function}, over 112 cases related to FaaS performance methodologies are reviewed which their work heavily focuses on AWS Lambda. They evaluated and studied from industry and academic literature to review different methodologies for FaaS performance benchmarks. Their evaluations are both micro-level which focuses on CPU level performance to application-level which evaluates the general performance of the application.
+In this paper, I will review the publications related to the FaaS performance benchmarks, summarize and present the important methodologies for FaaS performance evaluation.
+
+%
+
+%
+\section{Objective and Research Questions}
+\label{sec:objective-and-research-questions}
+
+\subsection{Objection}
+The main objective of this research is to study and review the literature on FaaS performance benchmarks and methodologies, then to summarize and present those different methodologies, frameworks, or tools that are used more to evaluate FaaS performance on different platforms. Since AWS Lambda is the leading cloud provider in the market \cite{scheuner2020state}, this paper will mainly focus on AWS Lambda and to compare different methodologies for FaaS/Serverless performance evaluation.
+
+\subsection{Research Questions}
+In the continuation of the above discussion, I aim to collect and review different benchmarking methodologies for FaaS performance evaluation from different resources and to find the answers to the following questions:
+
+\textbf{\textsc{Research Question 1:}} What types of benchmark characteristics are used for FaaS/Serverless performance evaluation? and what are the differences among them?
+
+\textbf{\textsc{Research Question 2:}} Which platforms, frameworks, and tools are commonly studied and used for FaaS/Serverless performance evaluation?
+
+\textbf{\textsc{Research Question 4:}} How reproducible are the experiments of performance evaluation?
+
+
+%
+\section{Methodology Approach}
+\label{sec:methodology-approach}
+To understand what types of performance characteristics have been used for FaaS performance benchmarks, the paper \cite{scheuner2020state} has divided the performance measurement into two different levels, the micro-benchmark which focuses on CPU and network-level performance, and application-benchmarks which evaluate the overall performance of the application, as well as some other general performance characteristics such as the use of concurrent execution, an inspection of infrastructure. With these different benchmark characteristics, I will find the answer for \emph{Research Questions 1}.
+
+There are two different types of platforms for FaaS configurations (private cloud and public cloud) \cite{van2017spec}. Through OpenFaaS, you can deploy and run FaaS on private cloud \footnote{\url{https://www.openfaas.com/blog/ofc-private-cloud/}} and all well-known public cloud providers offer FaaS platforms, such as AWS Lambda, Microsoft Azure, IBM Cloud Functions, and Google Cloud Functions. the paper \cite{scheuner2020state} extracted a list of well-known cloud providers with their supporting language runtimes and configurations which through it, I will answer the \emph{Research question 3}.
+
+To describe and evaluate the maturity of literature concerning reproducibility, the paper \cite{scheuner2020state} has evaluated over 112 cases and they applied different principles and methodologies to reproduce their FaaS performance evaluation tests, such as Repeated Experiments, Experiencement Setup Description, Probabilistic result description, Statistics evaluation, etc. Using all these steps, I will answer the \emph{Research Question 3}.
+
+\section{Preliminary Outline}
+\label{sec:preliminary-outline}
+\begin{enumerate}
+\item[1.] Introduction
+\item [2.] Conceptual Foundations of FaaS
+\begin{enumerate}
+\item[2.1] Definition, Architecture and Application Area
+\item[2.2] Benifits, Challenges, Requirements, and Necessity
+\item[2.3] Characteristics and standards of a good benchmark
+\end{enumerate}
+\item[3. ] Related Work
+\begin{enumerate}
+\item[3.1] Characteristics of Cloud Services
+\item[3.2] Benchmarking features of Serverless
+\end{enumerate}
+\item[4. ] Performance Evaluation of FaaS
+\begin{enumerate}
+\item[4.1] Publication Trends of FaaS
+\item[4.2] Studied Platforms
+\item[4.3] Benchmarks
+\begin{enumerate}
+\item[4.3.1] Micro-level Benchmarks
+\item[4.3.2] Application-level Benchmarks
+\item[4.3.2] General Charactersitics
+\end{enumerate}
+\item[4.4] Platform Configurations
+\begin{enumerate}
+\item[4.4.1] Language Runtimes
+\item[4.4.2] Function Triggers
+\item[4.4.3] External Services
+\end{enumerate}
+\item[4.5] Reproducibility
+\end{enumerate}
+\item[5. ] Conclusion
+\end{enumerate}
+
+%
+
+%
